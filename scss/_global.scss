@@ -1,0 +1,26 @@
+$darkBlueGrey: #607d8b;
+$mediumBlueGrey: #8097a2;
+$lightBlueGrey: #a0b1b9;
+$grey: #cfd8dc;
+$lightGrey: #eff2f3;
+$black: #000000;
+$spacing: 15px;
+$size: 16px;
+$font: 'Nunito Sans', sans-serif;
+
+@mixin flex($just, $align) {
+    display: flex;
+    justify-content: $just;
+    align-items: $align;
+}
+%flexcol {
+    flex-direction: column;
+}
+%margin {
+    margin-bottom: $spacing*.5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}

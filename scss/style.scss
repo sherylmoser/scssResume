@@ -1,0 +1,66 @@
+@import 'global';
+
+body {
+    background-color: $lightBlueGrey;
+    font-family: $font;
+}
+.container {
+    background-color: $lightGrey;
+    width: 70%;
+    margin: 50px auto;
+    padding: $spacing*2;
+    border-radius: 20px;
+}
+header {
+    margin-bottom: $spacing*2;
+    border-bottom: 1px solid $mediumBlueGrey;
+    width: 40%;
+    h2 {
+        font-weight: 200;
+        color: $darkBlueGrey;
+    }
+}
+.resumeInfo {
+    @include flex(space-between, flex-start);
+    h3 {
+        font-size: $size*1.5;
+        @extend %margin;
+    }
+}
+.margin {
+    @extend %margin;
+}
+.contactBox {
+    p {
+        font-size: $size*.9;
+    }
+}
+.right {
+    flex-grow: 2;
+    margin-left: $spacing*4;
+}
+.socialLinkBox {
+    @include flex(flex-start, center);
+}
+.socialLink {
+    @include flex(flex-start, center);
+    font-size: $size*.9;
+    margin-right: $spacing;
+    a {
+        text-decoration: none;
+        color: $black;
+        margin-left: $spacing*.5;
+    }
+}
+.singleEd {
+    @include flex(flex-start, flex-start);
+    .years {
+        width: 125px;
+    }
+}
+@media (max-width: 1150px) {
+    .socialLinkBox {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

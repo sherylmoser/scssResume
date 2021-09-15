@@ -6,15 +6,17 @@ body {
 }
 .container {
     background-color: $lightGrey;
-    width: 70%;
+    width: 75%;
     margin: 50px auto;
     padding: $spacing*2;
     border-radius: 20px;
+    transition: width .5s linear;
 }
 header {
     margin-bottom: $spacing*2;
-    border-bottom: 1px solid $mediumBlueGrey;
+    border-bottom: $border;
     width: 40%;
+    transition: width .5s linear;
     h2 {
         font-weight: 200;
         color: $darkBlueGrey;
@@ -27,6 +29,9 @@ header {
         @extend %margin;
     }
 }
+.section {
+    border-bottom: $border;
+}
 .margin {
     @extend %margin;
 }
@@ -35,12 +40,31 @@ header {
         font-size: $size*.9;
     }
 }
+.left {
+    padding-right: $spacing;
+}
 .right {
     flex-grow: 2;
-    margin-left: $spacing*4;
+    padding-left: $spacing*2;
+    border-left: $border;
 }
 .socialLinkBox {
     @include flex(flex-start, center);
+}
+.singleSkill {
+    @extend %margin;
+}
+.progressBox {
+    @include progress();
+}
+.progressBarHTML {
+    @include progress(135px, none, $darkBlueGrey);
+}
+.progressBarCSS {
+    @include progress(135px, none, $darkBlueGrey);
+}
+.progressBarJava {
+    @include progress(100px, none, $darkBlueGrey);
 }
 .socialLink {
     @include flex(flex-start, center);
@@ -57,10 +81,72 @@ header {
     .years {
         width: 125px;
     }
+    .degree {
+        h4 {
+            font-weight: 600;
+        }
+        p {
+            font-weight: 300;
+        }
+    }
 }
-@media (max-width: 1150px) {
+@media (max-width: 1000px) {
+    .container {
+        width: 85%;
+    }
     .socialLinkBox {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+@media (max-width: 800px) {
+    header {
+        width: 70%;
+    }
+    .resumeInfo {
+        flex-direction: column;
+    }
+    .left {
+        display:flex;
+        border-bottom: $border;
+        .section {
+            border-bottom: none;
+        }
+        .mediaLeft {
+            display: flex;
+            flex-wrap: wrap;
+            .contactBox {
+                margin-right: $spacing;
+            }
+        }
+        .skills {
+            border-left: $border;
+            padding-left: $spacing;
+        }
+    }
+    .right {
+        border-left: none;
+        padding-left: 0;
+    }
+}
+@media (max-width:500px) {
+    .container {
+        width: 100%;
+    }
+    .left {
+        display: block;
+        .section {
+            border-bottom: $border;
+        }
+        .skills {
+            border-left: none;
+            padding-left: 0;
+        }
+        .mediaSkills {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding-right: $spacing*2;
+        }
     }
 }

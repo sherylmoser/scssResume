@@ -7,11 +7,19 @@ $black: #000000;
 $spacing: 15px;
 $size: 16px;
 $font: 'Nunito Sans', sans-serif;
+$border: 1px solid $darkBlueGrey;
 
 @mixin flex($just, $align) {
     display: flex;
     justify-content: $just;
     align-items: $align;
+}
+@mixin progress($wide:175px, $bord:$border, $bg:none) {
+    width: $wide;
+    height: $spacing*.8;
+    border: $bord;
+    border-radius: $spacing;
+    background-color: $bg;
 }
 %flexcol {
     flex-direction: column;

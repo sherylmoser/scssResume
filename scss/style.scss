@@ -35,21 +35,18 @@ header {
 .margin {
     @extend %margin;
 }
+.left {
+    padding-right: $spacing;
+}
 .contactBox {
     p {
         font-size: $size*.9;
     }
-}
-.left {
-    padding-right: $spacing;
-}
-.right {
-    flex-grow: 2;
-    padding-left: $spacing*2;
-    border-left: $border;
-}
-.socialLinkBox {
-    @include flex(flex-start, center);
+    a {
+        text-decoration: none;
+        color: $black;
+        font-size: $size*.9;
+    }
 }
 .singleSkill {
     @extend %margin;
@@ -66,9 +63,20 @@ header {
 .progressBarJava {
     @include progress(100px, none, $darkBlueGrey);
 }
+.right {
+    flex-grow: 2;
+    padding-left: $spacing*2;
+    border-left: $border;
+}
+.socialContent {
+    width: 100%;
+    @include flex(space-between, center);
+}
+.socialLinkBox {
+    @include flex(flex-start, center);
+}
 .socialLink {
     @include flex(flex-start, center);
-    font-size: $size*.9;
     margin-right: $spacing;
     a {
         text-decoration: none;
@@ -76,12 +84,12 @@ header {
         margin-left: $spacing*.5;
     }
 }
-.singleEd {
+.singleEd, .singleExp {
     @include flex(flex-start, flex-start);
     .years {
         width: 125px;
     }
-    .degree {
+    .degree, .job {
         h4 {
             font-weight: 600;
         }
@@ -90,13 +98,10 @@ header {
         }
     }
 }
+
 @media (max-width: 1000px) {
     .container {
         width: 85%;
-    }
-    .socialLinkBox {
-        flex-direction: column;
-        align-items: flex-start;
     }
 }
 @media (max-width: 800px) {
@@ -131,7 +136,8 @@ header {
 }
 @media (max-width:500px) {
     .container {
-        width: 100%;
+        width: view-width;
+        margin: 0;
     }
     .left {
         display: block;
